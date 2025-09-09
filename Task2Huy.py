@@ -38,6 +38,7 @@ for reaction in model.reactions:
 # I dont really understand the
 # "We assume the subsequent transporter maximal activity accounts for maximal glucose uptake."
 # I assume unlimited supply so -1000
+# Maybe check this
 model.reactions.EX_glc__D_e.lower_bound = -1000
 
 # Set the upper bound to the default of 1000
