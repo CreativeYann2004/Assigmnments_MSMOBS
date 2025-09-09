@@ -35,6 +35,7 @@ def main():
                 reaction.upper_bound = value
 
     # EX_glc_D_e has questionable lower bound with -10 should probably be either 0 or -1000 chat-gpt suggest -1000 unclear if the -10 is a mistake in the provided data or a spefic limit on the output of EX_glc_D_e
+    # do first practical to understand how they want the glucose values to be changed the -10 seems to have something to do with it
 
     # Print the final reaction bounds as requested
     print(f"{'Reaction ID':<25} {'Lower Bound':<15} {'Upper Bound':<15}")
