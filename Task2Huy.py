@@ -34,32 +34,22 @@ def main():
                 reaction.lower_bound = 0
                 reaction.upper_bound = value
 
-
-    # Glucose exchange: remove the maximal uptake bound
-
-    # I dont really understand the
-    # "We assume the subsequent transporter maximal activity accounts for maximal glucose uptake."
-    # I assume unlimited supply so -1000
-    # Maybe check this
-    model.reactions.EX_glc__D_e.lower_bound = -1000
-
-    # Set the upper bound to the default of 1000
-    model.reactions.EX_glc__D_e.upper_bound = 1000
+    # EX_glc_D_e has questionable lower bound with -10 should probably be either 0 or -1000 chat-gpt suggest -1000 unclear if the -10 is a mistake in the provided data or a spefic limit on the output of EX_glc_D_e
 
     # Print the final reaction bounds as requested
-    print(f"{'Reaction ID':<15} {'Lower Bound':<15} {'Upper Bound':<15}")
+    print(f"{'Reaction ID':<25} {'Lower Bound':<15} {'Upper Bound':<15}")
     print("-" * 45)
     for reaction in model.reactions:
-        print(f"{reaction.id:<15} {reaction.lower_bound:<15.4f} {reaction.upper_bound:<15.4f}")
+        print(f"{reaction.id:<25} {reaction.lower_bound:<15.4f} {reaction.upper_bound:<15.4f}")
 
     # 3.a
     # we use the built-in FVA function from cobra
     fva_results = flux_variability_analysis(model, model.reactions)
 
-    print(f"{'Reaction ID':<20} {'Minimum Flux':<15} {'Maximum Flux':<15}")
+    print(f"{'Reaction ID':<25} {'Minimum Flux':<15} {'Maximum Flux':<15}")
     print("-" * 55)
     for rxn_id, row in fva_results.iterrows():
-        print(f"{rxn_id:<20} {row['minimum']:<15.5f} {row['maximum']:<15.5f}")
+        print(f"{rxn_id:<25} {row['minimum']:<15.5f} {row['maximum']:<15.5f}")
 
 
 if __name__ == "__main__":
