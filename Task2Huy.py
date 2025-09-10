@@ -4,11 +4,11 @@ import csv
 
 def main():
     # Load the E. coli core model
-    model = cobra.io.load_json_model('e_coli_core.json')
+    model = cobra.io.load_json_model('Assignment1/e_coli_core.json')
 
     # Store expression data from the CSV file as the command reference suggests
     expression_data = {}
-    with open('e_coli_core_expression.csv', mode='r') as file:
+    with open('Assignment1/e_coli_core_expression.csv', mode='r') as file:
         reader = csv.reader(file)
         next(reader)  # Skip header row
         for row in reader:

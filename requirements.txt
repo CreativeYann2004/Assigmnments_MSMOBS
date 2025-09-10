@@ -1,0 +1,5 @@
+cobra>=0.26,<1.0
+pandas>=1.5
+numpy>=1.24
+optlang>=1.7
+swiglpk>=5.0.10
