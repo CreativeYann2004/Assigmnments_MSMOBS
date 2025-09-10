@@ -47,6 +47,10 @@ def main():
     # 3.a
     # we use the built-in FVA function from cobra
     fva_results = flux_variability_analysis(model, model.reactions)
+    print(f"{'Reaction ID':<20} {'Minimum Flux':<15} {'Maximum Flux':<15}")
+    print("-" * 55)
+    for rxn_id, row in fva_results.iterrows():
+        print(f"{rxn_id:<20} {row['minimum']:<15.5f} {row['maximum']:<15.5f}")
 
     # 3.b
     restricted = []
