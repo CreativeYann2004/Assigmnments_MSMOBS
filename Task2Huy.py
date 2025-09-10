@@ -48,10 +48,56 @@ def main():
     # we use the built-in FVA function from cobra
     fva_results = flux_variability_analysis(model, model.reactions)
 
+    # 3.b
+    restricted = []
+    for rxn in model.reactions:
+        ub = rxn.upper_bound
+        fva_max = fva_results.loc[rxn.id, "maximum"]
+
+        if ub > 0 and fva_max < ub - 1e-9 and rxn.id != "FORt":
+            restricted.append((rxn.id, ub, fva_max))
+
+    print(f"Number of reactions with forward capacity > 0 but FVA maximum < UB: {len(restricted)}\n")
+
+    print(f"{'Reaction ID':<20} {'Upper Bound':<15} {'FVA Max Flux'}")
+    print("-" * 55)
+    for rxn_id, ub, fva_max in restricted[:15]:
+        print(f"{rxn_id:<20} {ub:<15.2f} {fva_max:.2f}")
+
     print(f"{'Reaction ID':<25} {'Minimum Flux':<15} {'Maximum Flux':<15}")
     print("-" * 55)
     for rxn_id, row in fva_results.iterrows():
         print(f"{rxn_id:<25} {row['minimum']:<15.5f} {row['maximum']:<15.5f}")
+
+
+    # 4.a
+    optimum = model.optimize()
+
+    bottlenecks = []
+
+    # 4.b
+    # we basically have to check which constraints are tight for the current solution
+    for rxn in model.reactions:
+        flux = optimum.fluxes[rxn.id]
+        if abs(flux - rxn.upper_bound) < 1e-6:  # at max bound
+            bottlenecks.append((rxn.id, flux, "upper_bound"))
+
+    # print results
+    print(f"{'Reaction ID':<20} {'Flux value':<15} {'At bound'}")
+    print("-" * 50)
+    for rxn_id, flux, which_bound in bottlenecks:
+        print(f"{rxn_id:<20} {flux:<15.5f} {which_bound}")
+
+    # 4.c
+    unused = []
+    for rxn in model.reactions:
+        if rxn.upper_bound > 0 and abs(optimum.fluxes[rxn.id]) < 1e-9:
+            unused.append(rxn)
+
+    print("Example unused reactions with nonzero capacity:")
+    for rxn in unused[:10]:  # show first 10
+        print(rxn.id, rxn.reaction)
+
 
 
 if __name__ == "__main__":
