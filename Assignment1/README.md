@@ -83,4 +83,4 @@ Example:
 PFL coa_c + pyr_c --> accoa_c + for_c 
 Although PFL has a non-zero maximum activity constraint, its flux is zero in the optimal solution.
 Explanation:
-PFL is part of a pathway that is not required under the current growth conditions since it is fully anaerobic but oxygen is present the aerobic pathway is more efficient and gets utilised instead of PFL. For this reason PFL does not carry flux.
+PFL is part of a pathway that is not required under the current growth conditions since oxygen is availabe and PDH is more effective than PFL at converting pyr to accoa_c.
