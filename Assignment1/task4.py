@@ -10,16 +10,16 @@ def main():
     optimum = model.optimize()
 
     bottlenecks = []
+    print(f"Maximal biomass production rate: {optimum.objective_value:.6f}\n")
 
     # 4.b
     # we basically have to check which constraints are tight for the current solution
     for rxn in model.reactions:
         flux = optimum.fluxes[rxn.id]
-        if abs(flux - rxn.upper_bound) < 1e-6:  # at max bound
+        if abs(flux - rxn.upper_bound) < 1e-9:  # at max bound
             bottlenecks.append((rxn.id, flux, "upper_bound"))
 
     # print results
-    print(f"Maximal biomass production rate: {optimum.objective_value:.6f}\n")
     print(f"{'Reaction ID':<20} {'Flux value':<15} {'At bound'}")
     print("-" * 50)
     for rxn_id, flux, which_bound in bottlenecks:

@@ -7,7 +7,7 @@
 
 Calvin Answer: 
 
-No the reaction rate is different in a linear pathway because it does not represent an equilibrium state but the expression rate under the assumption that the required molecules are available.
+No, the reaction rate is different in a linear pathway because it does not represent an equilibrium state but the expression rate under the assumption that the required molecules are available.
 
 Yann ANWER:
 
@@ -83,4 +83,4 @@ Example:
 PFL coa_c + pyr_c --> accoa_c + for_c 
 Although PFL has a non-zero maximum activity constraint, its flux is zero in the optimal solution.
 Explanation:
-PFL is part of a pathway that is not required under the current growth conditions or optimal solution. The model therefore selects alternative pathways (e.g. pyruvate dehydrogenase) for acetyl-CoA production, meaning that PFL does not carry flux. This is due to the structure of the network and the fact that alternative routes are more favourable for biomass production.
+PFL is part of a pathway that is not required under the current growth conditions since it is fully anaerobic but oxygen is present the aerobic pathway is more efficient and gets utilised instead of PFL. For this reason PFL does not carry flux.
