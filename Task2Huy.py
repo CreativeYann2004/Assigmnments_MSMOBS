@@ -73,6 +73,10 @@ def main():
     for rxn_id, row in fva_results.iterrows():
         print(f"{rxn_id:<25} {row['minimum']:<15.5f} {row['maximum']:<15.5f}")
 
+    # 3.c
+    positive_min_flux = [rxn_id for rxn_id, row in fva_results.iterrows() if row['minimum'] > 0]
+    print(f"Number of reactions with positive minimal flux: {len(positive_min_flux)}")
+
 
     # 4.a
     optimum = model.optimize()
