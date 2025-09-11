@@ -50,9 +50,12 @@ python Assignment1/task3.py
 WE COULD ATTACH THE TABLE HERE?
 
 ### 3b) Identify any reactions with gene expression-imposed maximal reaction activities, whose permissible flux range in forward direction is nonzero yet comes out less than its upper flux bound. State their number and explain why a set of reactions behaves this way.
+The flux rate is limited by the supply of chemicals needed for the reaction to occur limiting it below the enzymes theoretical upper bound.
+
+### 3c) How many reactions have a positive minimal flux in the FVA? State their number and explain why a set of reactions behaves this way.
+The reason for this happening is that the minimum ATPM is above 0 requiring some reactions to occur if they are absolutly necessary for increasing ATPM.
 
 WE COULD ATTACH THE TABLE HERE?
-AND WE NEED TO FIND AN EXPLANATION
 
 
 # Task4
@@ -83,4 +86,4 @@ Example:
 PFL coa_c + pyr_c --> accoa_c + for_c 
 Although PFL has a non-zero maximum activity constraint, its flux is zero in the optimal solution.
 Explanation:
-PFL is part of a pathway that is not required under the current growth conditions since oxygen is availabe and PDH is more effective than PFL at converting pyr to accoa_c.
+the Formate exchange is only one directional in the model not allowing the formate to get removed from the cell making it impossible to use the PFL as it results in formate being produced.
