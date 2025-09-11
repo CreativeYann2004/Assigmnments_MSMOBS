@@ -249,8 +249,8 @@ python Assignment1/task3.py
 | ACONTa      | 25.35       | 3.29         |
 | ACONTb      | 25.35       | 3.29         |
 
-Yes, these reactions whose forward flux range is non-zero yet still lower than the upper bound imposed by gene expression. Our results identified 91 such reactions. The flux rate is limited by the supply of chemicals required for the reaction to occur, restricting it to a value below the enzyme's theoretical upper bound. This is due to the fact that realised flux is determined by metabolic context, such as substrate availability, competing pathways and downstream bottlenecks, rather than enzyme capacity alone. Additionally, 41 reactions exhibit a positive minimal flux, indicating that they must always carry flux in these conditions.
-
+Remark: The table is not completly here because there are 91 reactions.
+So,a total of 91 reactions have a non-zero forward flux that remains below their gene expression-imposed upper bound. This is because the realised flux is limited by substrate supply, competing pathways and bottlenecks, meaning the enzyme cannot reach its full capacity. Additionally, 41 reactions always carry flux under the given conditions.
 
 ### 3c) How many reactions have a positive minimal flux in the FVA? State their number and explain why a set of reactions behaves this way.
 
@@ -281,9 +281,4 @@ These reactions limit the maximum biomass production rate because their enzyme a
 
 ### 4c) The model does not use (have non-zero flux for) all reactions in the model constrained with maximal reaction activities. Pick a reaction with maximal reaction activity constraints and zero flux in the optimal solution, and explain from the network context why it cannot carry flux.
 
-
-Example:
-PFL coa_c + pyr_c --> accoa_c + for_c 
-Although PFL has a non-zero maximum activity constraint, its flux is zero in the optimal solution.
-Explanation:
-the Formate exchange is only one directional in the model not allowing the formate to get removed from the cell and missing a pathway for formate to get used up making it impossible to use the PFL as it results in formate being produced.
+One example is the PFL reaction CoA-C + Pyr-C → AcCoA-C + FADH₂. Although this reaction has a non-zero maximal activity constraint, its flux is zero in the optimal solution. This is because the produced formate cannot be secreted or metabolised further, as the formate exchange is modelled as one-directional and there is no downstream pathway that consumes it. Allowing flux through the PFL reaction would therefore lead to the accumulation of an unusable by-product. Consequently, the network context blocks this reaction despite its enzyme capacity.
