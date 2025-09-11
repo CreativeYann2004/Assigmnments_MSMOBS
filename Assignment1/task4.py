@@ -1,19 +1,25 @@
-import common  # reuse constrained model
+import common
 
 def main():
-    # Load the E. coli core model
-    # Store expression data from the CSV file as the command reference suggests
-    # Apply constraints based on the assignment instructions
+    """
+    Performs FBA optimization of biomass production on the E. coli core model with gene expression constraints.
+    Steps:
+    1. Load the metabolic model and expression data using a shared utility.
+    2. Apply constraints to reactions as specified in the assignment.
+    3. Run FBA and report the maximal biomass production rate.
+    4. Identify bottleneck reactions whose flux reaches their upper bound.
+    5. List example reactions with nonzero capacity but zero flux in the optimal solution.
+    """
+    # Load the E. coli core model and expression data
     model, expression_data = common.get_model_with_constraints()
 
-    # 4.a
+    # 4.a FBA optimization
     optimum = model.optimize()
 
     bottlenecks = []
     print(f"Maximal biomass production rate: {optimum.objective_value:.6f}\n")
 
-    # 4.b
-    # we basically have to check which constraints are tight for the current solution
+    # 4.b Identify bottleneck reactions
     for rxn in model.reactions:
         flux = optimum.fluxes[rxn.id]
         if abs(flux - rxn.upper_bound) < 1e-9:  # at max bound
@@ -25,7 +31,7 @@ def main():
     for rxn_id, flux, which_bound in bottlenecks:
         print(f"{rxn_id:<20} {flux:<15.5f} {which_bound}")
 
-    # 4.c
+    # 4.c List unused reactions with nonzero capacity
     unused = []
     for rxn in model.reactions:
         if rxn.upper_bound > 0 and abs(optimum.fluxes[rxn.id]) < 1e-9:

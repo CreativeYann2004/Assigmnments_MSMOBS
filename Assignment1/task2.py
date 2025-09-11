@@ -1,12 +1,17 @@
-import common  # reuse single source of truth
+import common
 
 def main():
-    # Load the E. coli core model
-    # Store expression data from the CSV file as the command reference suggests
-    # Apply constraints based on the assignment instructions
-    model, expression_data = common.get_model_with_constraints()
+    """
+    Loads the E. coli core model, applies gene expression constraints,
+    and prints the lower and upper bounds for each reaction.
 
-    # Print the final reaction bounds as requested
+    Steps:
+    1. Load the metabolic model from JSON.
+    2. Load gene expression data from CSV.
+    3. Apply constraints to reactions as specified in the assignment.
+    4. Print a table of reaction bounds.
+    """
+    model, expression_data = common.get_model_with_constraints()
     print(f"{'Reaction ID':<25} {'Lower Bound':<15} {'Upper Bound':<15}")
     print("-" * 45)
     for reaction in model.reactions:
