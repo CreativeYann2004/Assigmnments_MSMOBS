@@ -86,4 +86,4 @@ Example:
 PFL coa_c + pyr_c --> accoa_c + for_c 
 Although PFL has a non-zero maximum activity constraint, its flux is zero in the optimal solution.
 Explanation:
-the Formate exchange is only one directional in the model not allowing the formate to get removed from the cell making it impossible to use the PFL as it results in formate being produced.
+the Formate exchange is only one directional in the model not allowing the formate to get removed from the cell and missing a pathway for formate to get used up making it impossible to use the PFL as it results in formate being produced.
