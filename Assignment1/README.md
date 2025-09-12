@@ -124,7 +124,7 @@ python Assignment1/task2.py
 | O2t                       | -40.6700    | 40.6700     |
 | PDH                       | 0.0000      | 32.3200     |
 
-values are in  [mmol/gDW/h]
+values are in  ${mmol}\over{gDW \cdot h}$
 
 # Task3
 
@@ -258,7 +258,7 @@ So,a total of 91 reactions have a non-zero forward flux that remains below their
 ### 3c) How many reactions have a positive minimal flux in the FVA? State their number and explain why a set of reactions behaves this way.
 
 Number of reactions with positive minimal flux: 41
-In the FVA, 41 reactions show a positive minimal flux. This occurs because ATPM and a nonzero biomass flux require continuous energy and precursor supply. As a result, key glycolysis, TCA, respiration, and exchange reactions must always operate, so their flux cannot drop to zero.
+In the FVA, 41 reactions show a positive minimal flux. This occurs because the always positive ATPM flux require continuous energy and precursor supply. As a result, key glycolysis, TCA, respiration, and exchange reactions must always operate, so their flux cannot drop to zero.
 
 
 # Task4
@@ -270,7 +270,7 @@ python Assignment1/task4.py
 
 ### 4a) Carry out an FBA optimization of biomass and report the maximal biomass production rate in the presence of the implemented constraints.
 
-The maximum rate of biomass production under the constraints imposed on enzyme activity is 0.479571 mmol/gDW/h.
+The maximum rate of biomass production under the constraints imposed on enzyme activity is 0.479571 mmol/(gDW*h).
 
 ### 4b) Determine the bottleneck(s)
 
