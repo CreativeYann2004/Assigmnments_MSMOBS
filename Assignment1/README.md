@@ -1,4 +1,7 @@
 # ASSIGNMENT 1
+
+NOTE: The python scripts have to be executed as Assignment1/task*.py since the model loading function uses a hardcoded path for simplisity when executing task*.py it will fail on loading the model since the file path does not assume Assignment1 to be the execution root
+
 # Task1
 
 ## 1a. Question
