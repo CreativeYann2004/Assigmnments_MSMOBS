@@ -1,6 +1,13 @@
 # ASSIGNMENT 1
 
-NOTE: The python scripts have to be executed as Assignment1/task*.py since the model loading function uses a hardcoded path for simplisity when executing task*.py it will fail on loading the model since the file path does not assume Assignment1 to be the execution root
+> [!IMPORTANT]  
+> Please ensure that you are running each script from the repository root. Otherwise, the working directory will be different and files
+> might not be loaded properly.
+> For example, the command to run task 2 is: 
+> ``python Assignment1/task2.py`` (ran from the repository root)
+> 
+> You should also ensure you have all the necessary packages, by running ``pip install cobra==0.29.1``
+
 
 # Task1
 
