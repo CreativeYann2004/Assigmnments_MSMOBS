@@ -1,3 +1,19 @@
+> [!IMPORTANT]  
+> The simulation code has been modified, as the simulation did not stop once the cell died.
+> 
+> There is now an additional break statement in the main simulation loop:
+>
+> ```python
+>  for step in range(steps):
+>     self.update_synchronous()
+>     # stop if the cell has died
+>     if self.nodes['Death'] == 1:
+>         break
+>     # the rest of the code is the same
+> ```
+
+
+
 # Question 1: The Most Dangerous Mutation
 The most dangerous mutation is the p53 knockout mutation, which completely removes the cell’s ability to undergo apoptosis. In this case, 37.5% of all possible states result in cancerous growth, compared to just 3% in the wild type. MYC amplification and MDM2 overexpression are also harmful, as they can shut off p53. However, p21 loss is less severe, as p53 can still trigger cell death.
 
