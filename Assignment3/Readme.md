@@ -1,5 +1,5 @@
 # Question 1: The Most Dangerous Mutation
-The most dangerous mutation is the p53 knockout mutation, which completely removes the cell’s ability to undergo apoptosis. In this case, around half of all possible states result in cancerous growth, compared to just 3% in the wild type. MYC amplification and MDM2 overexpression are almost as harmful, as they also effectively shut off p53. However, p21 loss is less severe, as p53 can still trigger cell death.
+The most dangerous mutation is the p53 knockout mutation, which completely removes the cell’s ability to undergo apoptosis. In this case, 37.5% of all possible states result in cancerous growth, compared to just 3% in the wild type. MYC amplification and MDM2 overexpression are also harmful, as they can shut off p53. However, p21 loss is less severe, as p53 can still trigger cell death.
 
 # Question 2: Role of the Feedback Loop
 The MYC → MDM2 → p53 loop suppresses p53. In normal cells, this prevents p53 from remaining active for too long after stress. However, when MYC or MDM2 are overexpressed, the loop permanently disables p53. Simulations show that, in these cases, the network never reaches a p53-active attractor. This allows damaged cells to continue growing instead of dying.
